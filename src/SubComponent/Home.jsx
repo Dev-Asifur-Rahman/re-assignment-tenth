@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
@@ -24,7 +25,9 @@ const Home = () => {
     }
     return (
         <div>
-            Home
+           <Helmet>
+            <title>Chill Gamer</title>
+           </Helmet>
             <Link to={'/login'}>Login</Link>
             <button className='btn' onClick={modal}>Open</button>
         </div>

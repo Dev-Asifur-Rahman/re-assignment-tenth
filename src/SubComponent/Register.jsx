@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import './login.css'
 import gsap, { Power2 } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Helmet } from "react-helmet";
 
 
 const Register = () => {
@@ -24,6 +25,8 @@ const Register = () => {
     }
   return (
     <div className="body">
+      <Helmet><title>
+        Register</title></Helmet>
       <form onSubmit={register} className="box">
         <h1 ref={h1} className="my-10 text-5xl font-bold text-white">Register</h1>
         <input type="text" placeholder="Username" />
