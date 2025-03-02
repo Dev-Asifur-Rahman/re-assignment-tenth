@@ -39,7 +39,7 @@ const Login = () => {
       <Helmet><title>
         LogIn</title></Helmet>
       <form onSubmit={login} className="box">
-        <h1 ref={h1} className="my-10 text-5xl font-bold text-white">Login</h1>
+        <h1 ref={h1} className="my-10 text-5xl  font-bold text-white">Login</h1>
         <input required type="email" name="email" placeholder="Email" />
         <input required type="password" name="password" placeholder="Password" />
         <input type="submit" value="Login" />

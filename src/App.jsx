@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
-  const [user,setUser] = useState({})
+  const [user,setUser] = useState(null)
   const [loading,setLoading] = useState(true)
   const context = {
     loading,
@@ -16,9 +16,9 @@ function App() {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(Auth, (user) => {
-      if (user) {
-        setUser(user);
+    const unsubscribe = onAuthStateChanged(Auth, (User) => {
+      if (User) {
+        setUser(User);
       } else {
         setUser(null);
       }

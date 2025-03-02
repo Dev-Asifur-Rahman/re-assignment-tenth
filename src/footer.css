@@ -1,0 +1,250 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+a {
+  text-decoration: none;
+  /*   outline: none; */
+}
+
+.footer-main-div {
+  width: 100%;
+  height: auto;
+  margin: 0px;
+  background: #222;
+  padding: 0px;
+}
+
+.footer-top {
+  width: 100%;
+  height: 50px;
+  margin: 0px;
+  background-color: #ccc;
+  padding-top: 15px;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 4px;
+  color: #272727;
+}
+
+.footer-top p:hover {
+  font-weight: 900;
+}
+
+.footer-top :before,
+.footer-top :after {
+  content: "|";
+  color: Red;
+  font-weight: 700;
+  margin: 15px;
+}
+
+.footer-social-icons {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  padding-top: 18px;
+  text-align: center; /* put icons in the middle of the circle*/
+}
+
+.footer-social-icons ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.footer-social-icons ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 0px 10px;
+  background: #bbb;
+  border-radius: 50%;
+  /*   border: solid 1px black; */
+}
+
+.footer-social-icons ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+  font-size: 1.5rem;
+}
+
+.footer-social-icons ul li a:hover {
+  color: #000;
+  font-size: 1.5rem;
+}
+
+/* .footer-social-icons ul li a i {
+  line-height: 50px;
+} */
+
+/* ======  footer-menu-ONE ======= */
+
+.title {
+  font-family: arial;
+  color: #ddd;
+  font-size: 0.9rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 20px;
+  text-decoration: overline;
+}
+.footer-menu-one {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  margin-top: 25px;
+}
+
+.footer-menu-one ul {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.footer-menu-one ul li {
+  display: inline-block;
+  margin: 0px 10px;
+}
+
+.footer-menu-one ul li ::before,
+.footer-menu-one ul li ::after {
+  content: "|";
+  color: red;
+  padding: 2px;
+}
+
+.footer-menu-one ul li a {
+  font-family: arial;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footer-menu-one ul li a:hover {
+  font-family: arial;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* =========footer-menu-TWO=============== */
+
+.footer-menu-two {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.footer-menu-two ul {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.footer-menu-two ul li {
+  display: inline-block;
+  margin: 0px 10px;
+}
+
+.footer-menu-two ul li :before,
+.footer-menu-two ul li :after {
+  content: "|";
+  color: #ea38cc;
+  padding: 2px;
+}
+
+.footer-menu-two ul li :before:hover,
+.footer-menu-two ul li :after {
+  content: "|";
+  color: yellow;
+  padding: 2px;
+}
+
+.footer-menu-two ul li a {
+  font-family: arial;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footer-menu-two a:hover {
+  color: #fff;
+}
+/* ======  footer-menu-THREE ======= */
+
+.footer-menu-three {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  margin-top: 15px;
+  padding-bottom: 15px;
+}
+
+.footer-menu-three ul {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.footer-menu-three ul li {
+  display: inline-block;
+  margin: 0px 10px;
+}
+
+.footer-menu-three ul li :before,
+.footer-menu-three ul li :after {
+  content: "|";
+  color: yellow;
+  padding: 2px;
+}
+
+.footer-menu-three ul li a {
+  font-family: arial;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footer-menu-three a:hover {
+  color: #fff;
+}
+
+/* ===================== */
+
+.footer-bottom {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  background-color: #ccc;
+  padding: 10px;
+  color: #272727;
+}
+
+.footer-bottom p {
+  font-family: arial;
+  font-size: 0.8rem;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.footer-bottom a {
+  color: #272727;
+  text-decoration: underline !important;
+}

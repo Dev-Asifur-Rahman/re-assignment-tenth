@@ -9,7 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import AllReviews from "./SubComponent/AllReviews";
 import AddReviews from "./SubComponent/AddReviews";
 import MyReviews from "./SubComponent/MyReviews";
-import GameWatchlist from "./SubComponent/MyReviews"
+import GameWatchlist from "./SubComponent/GameWatchlist"
 
 export const router = createBrowserRouter([
     {
@@ -38,15 +38,15 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/addreviews',
-                element:<AddReviews></AddReviews>
+                element:<PrivateRoute><AddReviews></AddReviews></PrivateRoute> 
             },
             {
                 path:'/myreviews',
-                element:<MyReviews></MyReviews>
+                element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute> 
             },
             {
                 path:'/gamewatchlist',
-                element:<GameWatchlist></GameWatchlist>
+                element:<PrivateRoute><GameWatchlist></GameWatchlist></PrivateRoute> 
             }
         ]
     },
