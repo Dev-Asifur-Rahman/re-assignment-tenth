@@ -11,6 +11,7 @@ function App() {
   const [loading,setLoading] = useState(true)
   const context = {
     loading,
+    setLoading,
     user,
     Auth
   };

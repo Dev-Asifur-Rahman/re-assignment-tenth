@@ -1,10 +1,25 @@
 import React, { useContext, useEffect } from "react";
-import { Link, NavLink, Outlet } from "react-router";
+import { Link, NavLink, Outlet, useNavigate } from "react-router";
 import { Context } from "../Context/context";
 import Footer from "../Footer";
+import { signOut } from "firebase/auth";
+import { Auth } from "../Firebase/firebase";
+import Swal from "sweetalert2";
 
 const MainHome = () => {
-    const {user} = useContext(Context)
+  const navigate = useNavigate();
+  const { user } = useContext(Context);
+  function signout() {
+    signOut(Auth).then((res) => {
+      Swal.fire({
+        title: "Logged Out",
+        icon: "success",
+        draggable: true,
+      }).then((res) => {
+        navigate("/");
+      });
+    });
+  }
   return (
     <div>
       <section className="nav-sec">
@@ -55,31 +70,36 @@ const MainHome = () => {
                 </li>
               </ul>
             </div>
-            <p className="text-xl font-bold lg:inline md:inline hidden">Chill Gamer</p>
+            <p className="text-xl font-bold lg:inline md:inline hidden">
+              Chill Gamer
+            </p>
           </div>
           <div className="nav-ul navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 gap-2">
               <NavLink to={"/"}>Home</NavLink>
               <NavLink to={"/allreviews"}>All Reviews</NavLink>
-              {
-                user && <Link to={'/addreviews'}>Add Reviews</Link>
-              }
-              {
-                user && <Link to={'/myreviews'}>My Reviews</Link>
-              }
-              {
-                user && <Link to={'/gamewatchlist'}>Watchlist</Link>
-              }
+              {user && <NavLink to={"/addreviews"}>Add Reviews</NavLink>}
+              {user && <NavLink to={"/myreviews"}>My Reviews</NavLink>}
+              {user && <NavLink to={"/gamewatchlist"}>Watchlist</NavLink>}
             </ul>
           </div>
           <div className="navbar-end gap-1">
-            {!user && (<Link to={"/login"}>
-              {" "}
-              <button className="btn">Login</button>{" "}
-            </Link>)}
-            {!user && (<Link to={"/register"}>
-              <button className="btn">Register</button>
-            </Link>)}
+            {!user && (
+              <Link to={"/login"}>
+                {" "}
+                <button className="btn">Login</button>{" "}
+              </Link>
+            )}
+            {!user && (
+              <Link to={"/register"}>
+                <button className="btn">Register</button>
+              </Link>
+            )}
+            {user && (
+              <button onClick={signout} className="btn">
+                SignOut
+              </button>
+            )}
           </div>
         </div>
       </section>
