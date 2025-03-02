@@ -6,6 +6,9 @@ import Error from "./MainComponent/Error";
 import Register from "./SubComponent/Register";
 import User from "./SubComponent/User";
 import PrivateRoute from "./PrivateRoute";
+import AllReviews from "./SubComponent/AllReviews";
+import AddReviews from "./SubComponent/AddReviews";
+import MyReviews from "./SubComponent/MyReviews";
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +30,18 @@ export const router = createBrowserRouter([
             {
                 path:'/user',
                 element:<PrivateRoute><User></User></PrivateRoute> 
+            },
+            {
+                path:'/allreviews',
+                element:<AllReviews></AllReviews>
+            },
+            {
+                path:'/addreviews',
+                element:<AddReviews></AddReviews>
+            },
+            {
+                path:'/myreviews',
+                element:<MyReviews></MyReviews>
             }
         ]
     },
