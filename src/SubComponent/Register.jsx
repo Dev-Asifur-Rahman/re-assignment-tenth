@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./login.css";
+import "./register.css";
 import gsap, { Power2 } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Helmet } from "react-helmet";
@@ -7,10 +7,11 @@ import { Link, useNavigate } from "react-router";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Auth } from "../Firebase/firebase";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const h1 = useRef(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useGSAP(() => {
     gsap.from(h1.current, {
@@ -29,35 +30,42 @@ const Register = () => {
     const email = target.email.value;
     const photoURL = target.photo.value;
     const password = target.password.value;
-    console.log(name, email, password, photoURL);
-    createUserWithEmailAndPassword(Auth, email, password)
-      .then((res) => {
-        updateProfile(Auth.currentUser, {
-          displayName: name,
-          photoURL: photoURL,
-        }).then(res=>{
+    if (password.length < 6) {
+      toast.warn("Must be at least 6 characters long")
+    } else if (!/[A-Z]/.test(password)) {
+      toast.warn("Must contain an uppercase letter");
+    } else if (!/[a-z]/.test(password)) {
+      toast.warn("Must contain a lowercase letter");
+    } else {
+      createUserWithEmailAndPassword(Auth, email, password)
+        .then((res) => {
+          updateProfile(Auth.currentUser, {
+            displayName: name,
+            photoURL: photoURL,
+          }).then((res) => {
+            Swal.fire({
+              title: "Registered Successfully",
+              icon: "success",
+              draggable: true,
+            }).then((res) => navigate("/"));
+          });
+        })
+        .catch((error) => {
           Swal.fire({
-            title: "Registered Successfully",
-            icon: "success",
-            draggable: true
-          }).then(res=>Navigate('/'));
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: '<a href="#">Why do I have this issue?</a>',
+          }).then((res) => target.reset());
         });
-      })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-          footer: '<a href="#">Why do I have this issue?</a>',
-        }).then((res) => target.reset());
-      });
+    }
   };
   return (
     <div className="body">
       <Helmet>
         <title>Register</title>
       </Helmet>
-      <form onSubmit={register} className="box">
+      <form onSubmit={register} className="box flex flex-col items-center">
         <h1 ref={h1} className="my-10 text-5xl font-bold text-white">
           Register
         </h1>

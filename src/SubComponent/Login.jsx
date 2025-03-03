@@ -56,7 +56,7 @@ const Login = () => {
         <title>LogIn</title>
       </Helmet>
       <div className="container ">
-        <form onSubmit={login} className="box">
+        <form onSubmit={login} className="box flex flex-col items-center">
           <h1 ref={h1} className="my-4 text-5xl font-bold text-white">
             Login
           </h1>

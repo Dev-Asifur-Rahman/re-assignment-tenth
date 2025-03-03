@@ -5,6 +5,7 @@ import { Context } from "./Context/context";
 import { Auth } from "./Firebase/firebase";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [user,setUser] = useState(null)
@@ -33,6 +34,7 @@ function App() {
       <Context.Provider value={context}>
           {" "}
           <RouterProvider router={router}></RouterProvider>
+          <ToastContainer />
       </Context.Provider>
     </>
   );
