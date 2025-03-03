@@ -2,8 +2,8 @@ import React from 'react';
 
 const AddReviews = () => {
     return (
-        <div>
-            add reviews
+        <div className='bg-[#34495e] h-5 w-full'>
+            
         </div>
     );
 };
