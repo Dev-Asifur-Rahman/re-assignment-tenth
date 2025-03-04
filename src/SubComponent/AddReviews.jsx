@@ -118,6 +118,12 @@ const AddReviews = () => {
         <option style={selectStyle} value="puzzle">
           Puzzle
         </option>
+        <option style={selectStyle} value="shooter">
+          Shooter
+        </option>
+        <option style={selectStyle} value="racing">
+          Racing
+        </option>
       </select>
       <input
         style={input}

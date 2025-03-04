@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const Table = ({ review, index, setData,data }) => {
   const navigate = useNavigate()
-  const { title, genre, year, _id } = review;
+  const { title, genre, year, _id,thumbnail,description,rating } = review;
   const handledelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -37,8 +37,8 @@ const Table = ({ review, index, setData,data }) => {
     });
   };
 
-  function handleupdate(id) {
-    navigate(`/updatereview/${id}`)
+  function handleupdate(id,data) {
+    navigate(`/updatereview/${id}`,{state: data})
   }
   return (
     <tr className="bg-base-200">
@@ -47,7 +47,13 @@ const Table = ({ review, index, setData,data }) => {
       <td>{genre}</td>
       <td>{year}</td>
       <td>
-        <MdOutlineUpdate onClick={()=>handleupdate(_id)} />
+        <MdOutlineUpdate onClick={()=>handleupdate(_id,{thumbnail,
+          title,
+          description,
+          rating,
+          year,
+          genre,
+          })} />
       </td>
       <td>
         <MdOutlineDelete onClick={() => handledelete(_id)} />

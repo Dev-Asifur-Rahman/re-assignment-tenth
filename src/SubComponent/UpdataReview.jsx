@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import { Context } from "../Context/context";
+import { toast } from "react-toastify";
 
 const UpdataReview = () => {
   const id = useParams().id;
+  const data = useLocation().state;
+  const { thumbnail, title, description, rating, year, genre } = data;
   const input = { border: "2px solid white", width: "250px" };
 
   const selectStyle = { backgroundColor: "white", color: "black" };
@@ -21,42 +24,34 @@ const UpdataReview = () => {
     const genre = target.genre.value;
     const email = target.email.value;
     const name = target.name.value;
-    console.log(thumbnail,
-              title,
-              description,
-              rating,
-              year,
-              genre,
-              email,
-              name,)
-    // if (rating >= 1 && rating <= 5) {
-    //   fetch("http://localhost:5000/addreview", {
-    //     method: "POST",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       thumbnail,
-    //       title,
-    //       description,
-    //       rating,
-    //       year,
-    //       genre,
-    //       email,
-    //       name,
-    //     }),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((result) => {
-    //       toast.success("Successfully Added");
-    //       target.reset();
-    //     })
-    //     .catch((error) => {
-    //       toast.error("Submission Error!");
-    //     });
-    // } else {
-    //   alert("Invalid rating");
-    // }
+    if (rating >= 1 && rating <= 5) {
+      fetch(`http://localhost:5000/updatereview/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          thumbnail,
+          title,
+          description,
+          rating,
+          year,
+          genre,
+          email,
+          name,
+        }),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          toast.success("Successfully Updated");
+          target.reset();
+        })
+        .catch((error) => {
+          toast.error("Update Error!");
+        });
+    } else {
+      alert("Invalid rating");
+    }
   };
 
   return (
@@ -68,6 +63,7 @@ const UpdataReview = () => {
         required
         style={input}
         type="text"
+        defaultValue={thumbnail}
         placeholder="Enter Thumbnail"
         name="thumbnail"
         className="rounded-[8px] text-white pl-2 h-10"
@@ -76,6 +72,7 @@ const UpdataReview = () => {
         required
         style={input}
         type="text"
+        defaultValue={title}
         placeholder="Game Title"
         name="title"
         className="rounded-[8px] text-white pl-2 h-10"
@@ -84,6 +81,7 @@ const UpdataReview = () => {
         name="description"
         required
         style={input}
+        defaultValue={description}
         placeholder="Description"
         className="rounded-[8px] text-white pl-2 h-10"
       ></textarea>
@@ -92,6 +90,7 @@ const UpdataReview = () => {
         style={input}
         type="text"
         placeholder="Rating"
+        defaultValue={rating}
         name="rating"
         className="rounded-[8px] text-white pl-2 h-10"
       />
@@ -99,13 +98,14 @@ const UpdataReview = () => {
         required
         style={input}
         type="text"
+        defaultValue={year}
         placeholder="Publish Year"
         name="year"
         className="rounded-[8px] text-white pl-2 h-10"
       />
       <select
         style={input}
-        defaultValue={"not added"}
+        defaultValue={genre}
         name="genre"
         className="rounded-[8px] text-white pl-2 h-10 "
       >
@@ -126,6 +126,12 @@ const UpdataReview = () => {
         </option>
         <option style={selectStyle} value="puzzle">
           Puzzle
+        </option>
+        <option style={selectStyle} value="shooter">
+          Shooter
+        </option>
+        <option style={selectStyle} value="racing">
+          Racing
         </option>
       </select>
       <input
