@@ -4,12 +4,12 @@ import Home from "./SubComponent/Home";
 import Login from "./SubComponent/Login";
 import Error from "./MainComponent/Error";
 import Register from "./SubComponent/Register";
-import User from "./SubComponent/User";
 import PrivateRoute from "./PrivateRoute";
 import AllReviews from "./SubComponent/AllReviews";
 import AddReviews from "./SubComponent/AddReviews";
 import MyReviews from "./SubComponent/MyReviews";
 import GameWatchlist from "./SubComponent/GameWatchlist"
+import UpdataReview from "./SubComponent/UpdataReview";
 
 export const router = createBrowserRouter([
     {
@@ -28,10 +28,7 @@ export const router = createBrowserRouter([
                 path:'/register',
                 element:<Register></Register>
             },
-            {
-                path:'/user',
-                element:<PrivateRoute><User></User></PrivateRoute> 
-            },
+
             {
                 path:'/allreviews',
                 loader : ()=> fetch('http://localhost:5000/reviews'),
@@ -40,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path:'/addreviews',
                 element:<PrivateRoute><AddReviews></AddReviews></PrivateRoute> 
+            },
+            {
+                path:'/updatereview/:id',
+                element:<PrivateRoute><UpdataReview></UpdataReview></PrivateRoute>
             },
             {
                 path:'/myreviews',

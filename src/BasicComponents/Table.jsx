@@ -1,9 +1,11 @@
 import React from "react";
 import { MdOutlineDelete } from "react-icons/md";
 import { MdOutlineUpdate } from "react-icons/md";
+import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const Table = ({ review, index, setData,data }) => {
+  const navigate = useNavigate()
   const { title, genre, year, _id } = review;
   const handledelete = (id) => {
     Swal.fire({
@@ -35,8 +37,8 @@ const Table = ({ review, index, setData,data }) => {
     });
   };
 
-  function handleupdate() {
-    console.log("update");
+  function handleupdate(id) {
+    navigate(`/updatereview/${id}`)
   }
   return (
     <tr className="bg-base-200">
@@ -45,7 +47,7 @@ const Table = ({ review, index, setData,data }) => {
       <td>{genre}</td>
       <td>{year}</td>
       <td>
-        <MdOutlineUpdate onClick={handleupdate} />
+        <MdOutlineUpdate onClick={()=>handleupdate(_id)} />
       </td>
       <td>
         <MdOutlineDelete onClick={() => handledelete(_id)} />
