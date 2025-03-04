@@ -112,25 +112,25 @@ const UpdataReview = () => {
         <option disabled style={selectStyle} value="not added">
           Enter Genre
         </option>
-        <option style={selectStyle} value="action">
+        <option style={selectStyle} value="Action">
           Action
         </option>
-        <option style={selectStyle} value="rpg">
+        <option style={selectStyle} value="RPG">
           RPG
         </option>
-        <option style={selectStyle} value="simulator">
+        <option style={selectStyle} value="Simulator">
           Simulator
         </option>
-        <option style={selectStyle} value="adventure">
+        <option style={selectStyle} value="Adventure">
           Adventure
         </option>
-        <option style={selectStyle} value="puzzle">
+        <option style={selectStyle} value="Puzzle">
           Puzzle
         </option>
-        <option style={selectStyle} value="shooter">
+        <option style={selectStyle} value="Shooter">
           Shooter
         </option>
-        <option style={selectStyle} value="racing">
+        <option style={selectStyle} value="Racing">
           Racing
         </option>
       </select>
