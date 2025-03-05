@@ -15,7 +15,7 @@ const MainHome = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-  console.log(user)
+  
   const closeDropdown = () => {
     setIsOpen(false);
   };

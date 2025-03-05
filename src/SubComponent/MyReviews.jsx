@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../Context/context";
 import Table from "../BasicComponents/Table";
+import NoDataFound from "../BasicComponents/NoDataFound";
 
 const MyReviews = () => {
   const { Auth } = useContext(Context);
@@ -10,8 +11,8 @@ const MyReviews = () => {
       .then((res) => res.json())
       .then((result) => setData(result));
   }, []);
-  if (!data) {
-    return <div>Add Some Data</div>;
+  if (data.length === 0) {
+    return <NoDataFound></NoDataFound>
   } else {
     return (
       <div className="overflow-x-auto">

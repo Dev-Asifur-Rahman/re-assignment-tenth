@@ -1,15 +1,46 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from "react";
+import WishlistTable from "../BasicComponents/WishlistTable"
+import { Context } from "../Context/context";
+import NoDataFound from "../BasicComponents/NoDataFound";
 
 const GameWatchlist = () => {
+  const { Auth } = useContext(Context);
+  const [wishdata, setWishData] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/mywatchlist?email=${Auth.currentUser.email}`)
+      .then((res) => res.json())
+      .then((result) => setWishData(result));
+  }, []);
+  if (wishdata.length === 0) {
+    return <NoDataFound></NoDataFound>
+  } else {
     return (
-        <div className=''>
-            <form className="h-96 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <p>hello</p>
-            <p>hello</p>
-            <p>hello</p>
-            </form>
-        </div>
+      <div className="overflow-x-auto">
+        <table className="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Genre</th>
+              <th>Year</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {wishdata.map((review, index) => (
+              <WishlistTable
+                review={review}
+                key={index}
+                index={index}
+                setWishData={setWishData}
+                wishdata={wishdata}
+              ></WishlistTable>
+            ))}
+          </tbody>
+        </table>
+      </div>
     );
+  }
 };
 
 export default GameWatchlist;
