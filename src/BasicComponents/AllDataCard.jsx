@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router";
 
 const AllDataCard = ({singleData}) => {
   
-  const {title,genre,year,rating,thumbnail} = singleData
+  const {title,genre,year,rating,thumbnail,_id} = singleData
   return (
     <div className="card hover:scale-[1.05] transition-transform duration-500 bg-base-100 w-[272px]  shadow-lg">
       <figure className="px-10 pt-10">
@@ -25,7 +26,7 @@ const AllDataCard = ({singleData}) => {
           Rating : {rating}
         </p>
         <div className="card-actions">
-          <button className="btn btn-primary">Explore Details</button>
+          <Link to={`/productdetails/${_id}`}><button className="btn btn-primary">Explore Details</button></Link>
         </div>
       </div>
     </div>

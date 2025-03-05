@@ -10,6 +10,7 @@ import AddReviews from "./SubComponent/AddReviews";
 import MyReviews from "./SubComponent/MyReviews";
 import GameWatchlist from "./SubComponent/GameWatchlist"
 import UpdataReview from "./SubComponent/UpdataReview";
+import Details from "./SubComponent/Details";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +46,11 @@ export const router = createBrowserRouter([
             {
                 path:'/myreviews',
                 element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute> 
+            },
+            {
+                path:'/productdetails/:id',
+                loader: ({params})=> fetch(`http://localhost:5000/review/${params.id}`),
+                element:<PrivateRoute><Details></Details></PrivateRoute>
             },
             {
                 path:'/gamewatchlist',

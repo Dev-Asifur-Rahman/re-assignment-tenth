@@ -11,11 +11,11 @@ import { Navigation } from 'swiper/modules';
 
 const Slider = () => {
     return (
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper w-full sm:h-64 md:h-80 lg:h-[450px]">
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper w-full sm:h-64 md:h-80 lg:h-[500px]">
         <SwiperSlide><img className='w-full h-full' src="https://i.ibb.co.com/W42v65kz/CSGO2-1024x576.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide><img className='w-full h-full' src="https://i.ibb.co.com/HLfzH5tN/main-qimg-3e0422c7e3dcb94436a36dce9414aa12-lq.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className='w-full h-full' src="https://i.ibb.co.com/p6wjZXbM/fortnite-1920x1080-hd-hzyi33y8l8xpravs.jpg" alt="" /></SwiperSlide>
         <SwiperSlide><img className='w-full h-full' src="https://i.ibb.co.com/WvPKZgY5/EGS-VALORANT-Riot-Games-S1-2560x1440-1dade6e50659c8e05805cb150b349e56.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide className=''><img className='w-full h-full ' src="https://i.ibb.co.com/1JQKyKZ9/11077601-dota-2-linux-front-cover.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide className=''><img className='w-full h-full ' src="https://i.ibb.co.com/BK7DPF4w/thumb-1920-1291619.png" alt="" /></SwiperSlide>
       </Swiper>
     );
 };
