@@ -14,7 +14,7 @@ function App() {
     loading,
     setLoading,
     user,
-    Auth
+    Auth,
   };
 
   useEffect(() => {
