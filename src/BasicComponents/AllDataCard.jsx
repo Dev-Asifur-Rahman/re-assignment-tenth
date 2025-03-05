@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
+import { Context } from "../Context/context";
 
 const AllDataCard = ({singleData}) => {
-  
+  const {setLoading} = useContext(Context)
   const {title,genre,year,rating,thumbnail,_id} = singleData
   return (
     <div className="card hover:scale-[1.05] transition-transform duration-500 bg-base-100 w-[272px]  shadow-lg">

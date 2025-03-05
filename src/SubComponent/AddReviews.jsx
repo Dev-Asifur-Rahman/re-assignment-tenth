@@ -53,7 +53,7 @@ const AddReviews = () => {
   return (
     <form
       onSubmit={submitReview}
-      className="bg-[#34495e] w-full py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 place-items-center content-center gap-y-10"
+      className="bg-[#34495e] w-full py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 place-items-center  gap-y-10"
     >
       <input
         required
@@ -127,7 +127,7 @@ const AddReviews = () => {
       </select>
       <input
         style={input}
-        defaultValue={Auth.currentUser.email}
+        defaultValue={Auth?.currentUser.email}
         type="email"
         placeholder="Enter Email"
         name="email"
@@ -141,7 +141,7 @@ const AddReviews = () => {
         name="name"
         className="rounded-[8px] text-white pl-2 h-10"
       />
-      <button className="btn col-span-2 w-[200px] rounded-[10px] bg-amber-400">
+      <button className="btn md:col-span-2 lg:col-span-2 col-span-1 w-[200px] rounded-[10px] bg-amber-400">
         Submit
       </button>
     </form>

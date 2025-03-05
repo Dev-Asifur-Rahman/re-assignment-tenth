@@ -152,7 +152,7 @@ const UpdataReview = () => {
         readOnly
         className="rounded-[8px] text-white pl-2 h-10"
       />
-      <button className="btn col-span-2 w-[200px] rounded-[10px] bg-amber-400">
+      <button className="btn lg:col-span-2 md:col-span-2 col-span-1 w-[200px] rounded-[10px] bg-amber-400">
         Submit
       </button>
     </form>

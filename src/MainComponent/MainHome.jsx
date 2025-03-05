@@ -1,14 +1,25 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router";
 import { Context } from "../Context/context";
 import Footer from "../Footer";
 import { signOut } from "firebase/auth";
 import { Auth } from "../Firebase/firebase";
 import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
 
 const MainHome = () => {
   const navigate = useNavigate();
   const { user } = useContext(Context);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+  console.log(user)
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
+
   function signout() {
     signOut(Auth).then((res) => {
       Swal.fire({
@@ -20,15 +31,17 @@ const MainHome = () => {
       });
     });
   }
+
   return (
     <div>
       <section className="nav-sec">
         <div className="navbar bg-[#333333] shadow-lg">
           <div className="navbar-start">
-            <div className="dropdown">
+            <div className="relative">
+              {/* Dropdown Button */}
               <div
-                tabIndex={0}
                 role="button"
+                onClick={toggleDropdown}
                 className="btn btn-ghost lg:hidden"
               >
                 <svg
@@ -38,41 +51,57 @@ const MainHome = () => {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  {" "}
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
                     d="M4 6h16M4 12h8m-8 6h16"
-                  />{" "}
+                    className="text-white"
+                  />
                 </svg>
               </div>
-              <ul
-                tabIndex={0}
-                className=" menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-              >
-                <li>
-                  <a>Item 1</a>
-                </li>
-                <li>
-                  <a>Parent</a>
-                  <ul className="p-2">
+
+              {/* Dropdown Menu */}
+              {isOpen && (
+                <ul className="menu menu-sm absolute left-0 mt-3 w-52 rounded-box bg-black p-2 shadow z-10">
+                  <li>
+                    <Link to="/" onClick={closeDropdown}>
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/allreviews" onClick={closeDropdown}>
+                      All Reviews
+                    </Link>
+                  </li>
+                  {user &&
                     <li>
-                      <a>Submenu 1</a>
+                      <Link to="/addreviews" onClick={closeDropdown}>
+                        Add Review
+                      </Link>
                     </li>
+                  }
+                  {user &&
                     <li>
-                      <a>Submenu 2</a>
+                      <Link to="/myreviews" onClick={closeDropdown}>
+                        My Review
+                      </Link>
                     </li>
-                  </ul>
-                </li>
-                <li>
-                  <a>Item 3</a>
-                </li>
-              </ul>
+                  }
+                  {user &&
+                    <li>
+                      <Link to="/gamewatchlist" onClick={closeDropdown}>
+                        Watchlist
+                      </Link>
+                    </li>
+                  }
+                </ul>
+              )}
             </div>
-            <p className="text-xl font-bold lg:inline md:inline hidden">
+            <p className=" text-xl font-bold lg:inline md:inline hidden">
               Chill Gamer
             </p>
+            
           </div>
           <div className="nav-ul navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 gap-2">
@@ -96,9 +125,13 @@ const MainHome = () => {
               </Link>
             )}
             {user && (
-              <button onClick={signout} className="btn">
-                SignOut
-              </button>
+              <div className="flex items-center gap-2">
+                <div className="name h-[40px] w-[40px] rounded-full"><img className="h-full w-full rounded-full" src={user?.photoURL} alt="image" /></div>
+                <Tooltip anchorSelect=".name" place="left">{user.displayName}</Tooltip>
+                <button onClick={signout} className="btn">
+                  SignOut
+                </button>
+              </div>
             )}
           </div>
         </div>
