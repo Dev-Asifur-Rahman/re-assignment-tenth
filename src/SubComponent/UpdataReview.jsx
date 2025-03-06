@@ -25,7 +25,7 @@ const UpdataReview = () => {
     const email = target.email.value;
     const name = target.name.value;
     if (rating >= 1 && rating <= 5) {
-      fetch(`http://localhost:5000/updatereview/${id}`, {
+      fetch(`https://server-site-theta-six.vercel.app/updatereview/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

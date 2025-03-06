@@ -9,7 +9,7 @@ import JoinCommunity from "../BasicComponents/JoinCommunity";
 const Home = () => {
   const [games, setGames] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://server-site-theta-six.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         const topRatedGames = data

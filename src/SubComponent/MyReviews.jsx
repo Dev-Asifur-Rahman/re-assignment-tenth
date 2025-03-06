@@ -7,7 +7,7 @@ const MyReviews = () => {
   const { Auth } = useContext(Context);
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/myreviews?email=${Auth.currentUser.email}`)
+    fetch(`https://server-site-theta-six.vercel.app/myreviews?email=${Auth.currentUser.email}`)
       .then((res) => res.json())
       .then((result) => setData(result));
   }, []);

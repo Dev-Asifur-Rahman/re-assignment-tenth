@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import "./details.css";
 import { Rating,Star } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { toast } from "react-toastify";
+
 import Swal from "sweetalert2";
+import { Context } from "../Context/context";
 
 const Details = () => {
   const [item, setItem] = useState({});
   const data = useLoaderData();
-
+  const {user} = useContext(Context)
   useEffect(() => {
     setItem(data);
   }, []);
@@ -20,7 +21,7 @@ const Details = () => {
   };
 
   const watchlist = (id,object)=>{
-    fetch('http://localhost:5000/addwatchlist',{
+    fetch(`https://server-site-theta-six.vercel.app/addwatchlist?mail=${user.email}`,{
       method:'POST',
       headers:{
         'content-type':'application/json'

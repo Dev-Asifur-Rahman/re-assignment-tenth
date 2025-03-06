@@ -7,7 +7,7 @@ const GameWatchlist = () => {
   const { Auth } = useContext(Context);
   const [wishdata, setWishData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/mywatchlist?email=${Auth.currentUser.email}`)
+    fetch(`https://server-site-theta-six.vercel.app/mywatchlist?email=${Auth.currentUser.email}`)
       .then((res) => res.json())
       .then((result) => setWishData(result));
   }, []);

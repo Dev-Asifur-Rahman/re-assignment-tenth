@@ -70,7 +70,7 @@ const Login = () => {
           footer: '<a href="#">Why do I have this issue?</a>',
         }).then((res) => target.reset());
       });
-    // fetch("http://localhost:5000/doc/hello", {
+    // fetch("https://server-site-theta-six.vercel.app/doc/hello", {
     //   method: "POST",
     //   headers: {
     //     "content-type": "application/json",

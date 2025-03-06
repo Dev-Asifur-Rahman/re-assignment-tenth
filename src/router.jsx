@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
 
             {
                 path:'/allreviews',
-                loader : ()=> fetch('http://localhost:5000/reviews'),
+                loader : ()=> fetch('https://server-site-theta-six.vercel.app/reviews'),
                 element:<AllReviews></AllReviews>
             },
             {
@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/productdetails/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/review/${params.id}`),
+                loader: ({params})=> fetch(`https://server-site-theta-six.vercel.app/review/${params.id}`),
                 element:<PrivateRoute><Details></Details></PrivateRoute>
             },
             {

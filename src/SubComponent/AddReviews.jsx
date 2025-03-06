@@ -21,7 +21,7 @@ const AddReviews = () => {
     const email = target.email.value;
     const name = target.name.value;
     if (rating >= 1 && rating <= 5) {
-      fetch("http://localhost:5000/addreview", {
+      fetch("https://server-site-theta-six.vercel.app/addreview", {
         method: "POST",
         headers: {
           "content-type": "application/json",
