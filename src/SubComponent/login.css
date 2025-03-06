@@ -1,20 +1,18 @@
-.body {
-  width: 100vw;
-  height: 80vh;
+.login-body {
+  width: 100%;
   display: flex;
-  position: relative;
+  
   justify-content: center;
   align-items: center;
   background: #34495e;
 }
 
-.container {
+.login-container {
   width: fit-content;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
 }
 
 .box input[type="email"],
@@ -61,12 +59,12 @@
   background-color: #2ecc71;
 }
 
-@media screen and (min-width: 375px) and (max-width:1024px) {
+/* @media screen and (min-width: 375px) and (max-width:1024px) {
 
   .body{
     height: 150vh;
   }
-}
+} */
 
 @media screen and (max-width: 375px) {
   .box input[type="email"]:focus,
@@ -75,7 +73,7 @@
     width: 230px;
   }
 
-  .body{
+  /* .container{
     height: 150vh;
-  }
+  } */
 }

@@ -14,7 +14,7 @@ const Home = () => {
       .then((data) => {
         const topRatedGames = data
           .sort((a, b) => b.rating - a.rating)
-          .slice(0, 6);
+          .slice(0, 8);
         setGames(topRatedGames);
       });
   }, []);

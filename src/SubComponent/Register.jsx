@@ -61,12 +61,12 @@ const Register = () => {
     }
   };
   return (
-    <div className="body">
+    <div className="register-body">
       <Helmet>
         <title>Register</title>
       </Helmet>
-      <form onSubmit={register} className="box flex flex-col items-center">
-        <h1 ref={h1} className="my-10 text-5xl font-bold text-white">
+      <form onSubmit={register} className="box flex flex-col items-center md:my-6 my-4 lg:my-10">
+        <h1 ref={h1} className="my-4 text-5xl font-bold text-white">
           Register
         </h1>
         <input required type="text" name="name" placeholder="Username" />

@@ -70,22 +70,14 @@ const Login = () => {
           footer: '<a href="#">Why do I have this issue?</a>',
         }).then((res) => target.reset());
       });
-    // fetch("https://server-site-theta-six.vercel.app/doc/hello", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({ email, password }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
+    
   };
   return (
-    <div className="body">
+    <div className="login-body">
       <Helmet>
         <title>LogIn</title>
       </Helmet>
-      <div className="container ">
+      <div className=" login-container md:my-6 my-4 lg:my-10">
         <form onSubmit={login} className="box flex flex-col items-center">
           <h1 ref={h1} className="my-4 text-5xl font-bold text-white">
             Login
@@ -105,7 +97,7 @@ const Login = () => {
           </Link>
         </form>
         <p
-          className="text-white text-xl font-semibold hover:underline"
+          className="text-white cursor-pointer text-xl font-semibold hover:underline"
           onClick={googlelogin}
         >
           SignIn with Google
